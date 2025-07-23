@@ -1,22 +1,18 @@
 ﻿using BepInEx.Logging;
+using Cinemachine;
+using CustomCamera;
+using Ecs.Input.Components.Tags;
 using HarmonyLib;
 using System;
-using System.Reflection;
-using UnityEngine;
-using Cinemachine;
-using System.Linq;
 using System.Collections.Generic;
-using CustomCamera;
-using UnityEngine.Rendering;
-
+using System.Linq;
+using System.Reflection;
 // ECS
 using Unity.Entities;
 using Unity.Transforms;
-using Ecs.Input.Components.Tags;
+using UnityEngine;
 
-namespace YourModNamespace.Patchers
-{
-    [HarmonyPatch(typeof(RTS_Camera))]
+[HarmonyPatch(typeof(RTS_Camera))]
     public class RTSCameraOrbitPatch
     {
         private static readonly ManualLogSource Logger = BepInEx.Logging.Logger.CreateLogSource("RTS_CameraPatch");
@@ -286,4 +282,4 @@ namespace YourModNamespace.Patchers
             return closest;
         }
     }
-}
+
